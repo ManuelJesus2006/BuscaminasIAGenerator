@@ -413,8 +413,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Generator
   piece: {fileID: 4207749456435846588, guid: 95b1d37fdd5676842a0fe8625056aa19, type: 3}
-  width: 10
+  width: 20
   height: 10
+  bombsNumber: 20
 --- !u!4 &2026074614
 Transform:
   m_ObjectHideFlags: 0
