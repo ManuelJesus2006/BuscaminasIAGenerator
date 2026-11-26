@@ -26,6 +26,8 @@ public class Generator : MonoBehaviour
             {
                 //Referenciamos cada uno de los gameObjects para crear las bombas
                 tablero[i][j] = Instantiate(piece,new Vector2(i,j), Quaternion.identity);
+                tablero[i][j].GetComponent<Piece>().x = i;
+                tablero[i][j].GetComponent<Piece>().y = j;
             }
         }
 
@@ -61,9 +63,9 @@ public class Generator : MonoBehaviour
         if (x < width - 1 && x < height - 1 && tablero[x+1][y+1].GetComponent<Piece>().bomb) cont++;
         if (x > 0 && tablero[x-1][y].GetComponent<Piece>().bomb) cont++;
         if (x < width - 1 && tablero[x+1][y].GetComponent<Piece>().bomb) cont++;
-        if (tablero[x-1][y-1].GetComponent<Piece>().bomb) cont++;
-        if (tablero[x][y-1].GetComponent<Piece>().bomb) cont++;
-        if (tablero[x+1][y-1].GetComponent<Piece>().bomb) cont++;
+        if (x > 0 && y > 0 && tablero[x-1][y-1].GetComponent<Piece>().bomb) cont++;
+        if (y > 0 && tablero[x][y-1].GetComponent<Piece>().bomb) cont++;
+        if (x < width - 1 && y > 0 && tablero[x+1][y-1].GetComponent<Piece>().bomb) cont++;
         return cont;
     }
     // Update is called once per frame
